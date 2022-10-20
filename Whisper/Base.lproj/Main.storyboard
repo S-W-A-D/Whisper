@@ -80,6 +80,18 @@
                     <view key="view" contentMode="scaleToFill" id="B8r-SO-eo0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VU-Ca-78G">
+                                <rect key="frame" x="73" y="308" width="245" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="submit juicy confession oooo"/>
+                                <connections>
+                                    <segue destination="wqS-sc-NpI" kind="show" id="u9f-yA-kvj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xQr-b8-aQc"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                     </view>
@@ -94,22 +106,66 @@
             <objects>
                 <viewController id="wqS-sc-NpI" customClass="SubmitViewController" customModule="Whisper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNX-Cf-GZC" customClass="Subm">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title your whisper" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wp4-er-bCk">
+                                <rect key="frame" x="100" y="227" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleView:" destination="wqS-sc-NpI" eventType="editingDidEnd" id="2hG-rf-DGr"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter text here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7w-CS-wo5">
+                                <rect key="frame" x="35" y="292" width="320" height="445"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="whisperView:" destination="wqS-sc-NpI" eventType="editingDidEnd" id="6sP-RO-Q2l"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vR0-Pq-K3t">
+                                <rect key="frame" x="158" y="128" width="76" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="submit"/>
+                                <connections>
+                                    <action selector="submitResponse:" destination="wqS-sc-NpI" eventType="touchUpInside" id="ofM-c8-6Zz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dnw-Ox-Ujn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dnw-Ox-Ujn" firstAttribute="bottom" secondItem="k7w-CS-wo5" secondAttribute="bottom" constant="50" id="Dk7-Zn-dGb"/>
+                            <constraint firstItem="dnw-Ox-Ujn" firstAttribute="bottom" secondItem="Wp4-er-bCk" secondAttribute="bottom" constant="530" id="IQy-Km-qIh"/>
+                            <constraint firstItem="k7w-CS-wo5" firstAttribute="top" secondItem="Wp4-er-bCk" secondAttribute="bottom" constant="35" id="RSP-gO-SlJ"/>
+                            <constraint firstItem="Wp4-er-bCk" firstAttribute="leading" secondItem="dnw-Ox-Ujn" secondAttribute="leading" constant="100" id="UQu-dt-Ufu"/>
+                            <constraint firstItem="dnw-Ox-Ujn" firstAttribute="trailing" secondItem="Wp4-er-bCk" secondAttribute="trailing" constant="100" id="WSF-bd-TOR"/>
+                            <constraint firstItem="k7w-CS-wo5" firstAttribute="leading" secondItem="dnw-Ox-Ujn" secondAttribute="leading" constant="35" id="edJ-k1-7F3"/>
+                            <constraint firstItem="dnw-Ox-Ujn" firstAttribute="trailing" secondItem="k7w-CS-wo5" secondAttribute="trailing" constant="35" id="mxp-cl-87I"/>
+                            <constraint firstItem="Wp4-er-bCk" firstAttribute="top" secondItem="dnw-Ox-Ujn" secondAttribute="top" constant="180" id="nGz-tb-dw1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Ny-TN-jRh"/>
+                    <connections>
+                        <outlet property="titleView" destination="Wp4-er-bCk" id="vIj-CL-F1S"/>
+                        <outlet property="whisperView" destination="k7w-CS-wo5" id="nml-QS-K4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lx5-EF-kOC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3280" y="53"/>
+            <point key="canvasLocation" x="3280" y="52.606635071090047"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7Ue-2h-diN"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
